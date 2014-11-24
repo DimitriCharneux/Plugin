@@ -1,16 +1,9 @@
 package plugin;
 
-import java.awt.Event;
+import java.util.EventObject;
 
-public class FileEvent extends Event{
-	protected String nom;
-	public FileEvent(Object target, int id, Object arg) {
-		super(target, id, arg);
-		nom = (String) target;
+public class FileEvent extends EventObject{
+	public FileEvent(String source) {
+		super(source);
 	}
-	
-	public String getNom(){
-		return nom;
-	}
-
 }
