@@ -10,25 +10,21 @@ import javax.swing.Timer;
 
 public class FileChecker {
 	protected Timer timer;
-	protected FilenameFilter filter;
 	protected ArrayList<FileListener> fileListeners;
-	protected List<String> readFileName ;
 
 	public FileChecker(FilenameFilter filter) {
-		this.filter = filter;
 		fileListeners = new ArrayList<FileListener>();
-		readFileName = new ArrayList<String>();
-		timer = new Timer(1000, new ActionReadFileName());
+		timer = new Timer(1000, new ActionReadFileName(filter, this));
 	}
 
-	public synchronized void addTelephoneListener(FileListener l) {
+	public synchronized void addFileListener(FileListener l) {
 		if (fileListeners.contains(l)) {
 			return;
 		}
 		fileListeners.add(l);
 	}
 
-	public synchronized void removeTelephoneListener(FileListener l) {
+	public synchronized void removeFileListener(FileListener l) {
 		fileListeners.remove(l);
 	}
 
@@ -44,19 +40,19 @@ public class FileChecker {
 		}
 	}
 	
-	private class ActionReadFileName implements ActionListener{
-
-		@Override
-		public void actionPerformed(ActionEvent arg0) {
-			ClassFile file = new ClassFile();
-			String[] str = file.listName(filter);
-			for(String st : str){
-				if(!readFileName.contains(st)){
-					readFileName.add(st);
-					fireFileAdded(st);
-				}
-			}
+	public void fireFileRemoved(String name) {
+		ArrayList<FileListener> tl = (ArrayList<FileListener>) fileListeners
+				.clone();
+		if (tl.size() == 0) {
+			return;
 		}
-		
+		FileEvent event = new FileEvent(name);
+		for (FileListener listener : tl) {
+			listener.fileRemoved(event);
+		}
+	}
+	
+	public void startTimer(){
+		timer.start();
 	}
 }
