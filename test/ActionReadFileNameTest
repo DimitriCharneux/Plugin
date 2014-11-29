@@ -1,9 +1,8 @@
 package plugin;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.io.FilenameFilter;
-import java.util.ArrayList;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -26,19 +25,17 @@ public class ActionReadFileNameTest {
 	}
 	
 	@Test
-	public void detectFileAddedTest() {
+	public void detectFileAddedthenRemovedTest() {
 		reader.FileAddedDetected(listClassFile);
 		assertEquals(2, nbFichiers);
-	}
 
-	@Test
-	public void detectFileRemovedTest() {
 		listClassFile = new  String[1];
 		listClassFile[0] = "File1.class";
-		reader.FileAddedDetected(listClassFile);
+		reader.FileRemovedDetected(listClassFile);
 		assertEquals(1, nbFichiers);
 	}
 
+	
 	class MockUpChecker extends FileChecker {
 
 		public MockUpChecker(FilenameFilter filter) {
