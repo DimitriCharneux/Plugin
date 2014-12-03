@@ -9,6 +9,9 @@ import plugin.Plugin;
  */
 public class ToUpperCase implements Plugin {
 
+	public ToUpperCase(){
+		
+	}
 	/** transform all the letters to upper case
 	 * @see plugin.Plugin#transform(java.lang.String)
 	 */
