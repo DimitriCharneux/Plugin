@@ -26,32 +26,33 @@ public class FileChecker {
 	}
 
 	public void fireFileAdded(String name) {
+		auxFireFileAdded(new FileEvent(name));
+	}
+
+	protected void auxFireFileAdded(FileEvent event) {
 		ArrayList<FileListener> tl = (ArrayList<FileListener>) fileListeners
 				.clone();
 		if (tl.size() == 0) {
 			return;
 		}
-		FileEvent event = createFileEvent(name); //j'extrai le new FileEvent(name)
 		for (FileListener listener : tl) {
 			listener.fileAdded(event);
 		}
 	}
 
 	public void fireFileRemoved(String name) {
+		auxFireFileRemoved(new FileEvent(name));
+	}
+
+	private void auxFireFileRemoved(FileEvent event) {
 		ArrayList<FileListener> tl = (ArrayList<FileListener>) fileListeners
 				.clone();
 		if (tl.size() == 0) {
 			return;
 		}
-		FileEvent event = createFileEvent(name); //ici aussi
 		for (FileListener listener : tl) {
 			listener.fileRemoved(event);
 		}
-	}
-
-//la fonction que j'aimerai changer dans le fichier test
-	protected FileEvent createFileEvent(String name) {
-		return new FileEvent(name);
 	}
 
 
