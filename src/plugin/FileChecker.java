@@ -44,7 +44,7 @@ public class FileChecker {
 		auxFireFileRemoved(new FileEvent(name));
 	}
 
-	private void auxFireFileRemoved(FileEvent event) {
+	protected void auxFireFileRemoved(FileEvent event) {
 		ArrayList<FileListener> tl = (ArrayList<FileListener>) fileListeners
 				.clone();
 		if (tl.size() == 0) {
