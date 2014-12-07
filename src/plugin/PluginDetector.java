@@ -10,17 +10,14 @@ public class PluginDetector implements FileListener {
 	
 	@Override
 	public void fileAdded(FileEvent e) {
-			//System.out.printf("Nouveau .class %s détecté\n", e.getSource());
-			
-			gd.addMenuItem((String)e.getSource());
-			 
+		String fileName = (String)e.getSource();
+		gd.addMenuItem(fileName.substring(0,fileName.lastIndexOf(".class")));
 	}
 
 	@Override
 	public void fileRemoved(FileEvent e) {
-		//System.out.printf(".class %s supprimé detecté\n", e.getSource());
-		
-		gd.removeMenuItem((String)e.getSource());
+		String fileName = (String)e.getSource();
+		gd.removeMenuItem(fileName.substring(0,fileName.lastIndexOf(".class")));
 	}
 
 }

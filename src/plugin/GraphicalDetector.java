@@ -51,6 +51,7 @@ public class GraphicalDetector extends JFrame{
 		if (!listMenuItem.contains(item)) {
 			menu.add(item);
 			listMenuItem.add(item);
+			item.addActionListener(new ActionMenuItemListener(this));
 		}
 	}
 	
@@ -68,6 +69,14 @@ public class GraphicalDetector extends JFrame{
 				menu.remove(listMenuItem.remove(i));
 			}
 		}
+	}
+	
+	public String getText(){
+		return textArea.getText();
+	}
+	
+	public void setText(String str){
+		textArea.setText(str);
 	}
 
 	public static void main(String[] args) {

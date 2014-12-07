@@ -6,7 +6,7 @@ import java.io.FilenameFilter;
 public class ClassFile {
 	protected File file;
 	public ClassFile (){
-		file = new File("/home/dimitri/workspace/Plugin/src/plugin");
+		file = new File("/home/dimitri/workspace/Plugin/classPlugins");
 	}
 	
 	public ClassFile (String dir){
