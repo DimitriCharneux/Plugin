@@ -26,30 +26,24 @@ public class FileChecker {
 	}
 
 	public void fireFileAdded(String name) {
-		auxFireFileAdded(new FileEvent(name));
-	}
-
-	protected void auxFireFileAdded(FileEvent event) {
 		ArrayList<FileListener> tl = (ArrayList<FileListener>) fileListeners
 				.clone();
 		if (tl.size() == 0) {
 			return;
 		}
+		FileEvent event = new FileEvent(name);
 		for (FileListener listener : tl) {
 			listener.fileAdded(event);
 		}
 	}
 
 	public void fireFileRemoved(String name) {
-		auxFireFileRemoved(new FileEvent(name));
-	}
-
-	protected void auxFireFileRemoved(FileEvent event) {
 		ArrayList<FileListener> tl = (ArrayList<FileListener>) fileListeners
 				.clone();
 		if (tl.size() == 0) {
 			return;
 		}
+		FileEvent event = new FileEvent(name);
 		for (FileListener listener : tl) {
 			listener.fileRemoved(event);
 		}
