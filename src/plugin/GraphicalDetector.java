@@ -54,14 +54,6 @@ public class GraphicalDetector extends JFrame{
 			item.addActionListener(new ActionMenuItemListener(this));
 		}
 	}
-	
-	public void addFileListener(FileListener fl){
-		checker.addFileListener(fl);
-	}
-	
-	public void start(){
-		checker.startTimer();
-	}
 
 	public void removeMenuItem(String s){
 		for(int i=0; i<listMenuItem.size(); i++){
@@ -71,18 +63,19 @@ public class GraphicalDetector extends JFrame{
 		}
 	}
 	
+	public void addFileListener(FileListener fl){
+		checker.addFileListener(fl);
+	}
+	
+	public void start(){
+		checker.startTimer();
+	}
+	
 	public String getText(){
 		return textArea.getText();
 	}
 	
 	public void setText(String str){
 		textArea.setText(str);
-	}
-
-	public static void main(String[] args) {
-		GraphicalDetector gd = new GraphicalDetector();
-		FileListener listener = new PluginDetector(gd);
-		gd.addFileListener(listener);
-		gd.start();
 	}
 }
