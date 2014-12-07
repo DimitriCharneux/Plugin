@@ -25,32 +25,45 @@ public class FileCheckerTest {
 		assertTrue(fc.fileListeners.isEmpty());
 		fc.addFileListener(l);
 		assertTrue(fc.fileListeners.contains(l));
+		
 		fc.addFileListener(l);
 		assertEquals(1, fc.fileListeners.size());
-		
-		//j'essaie déjà juste de faire tourner les fonctions
-		fc.fireFileAdded("name");		
-		fc.fireFileRemoved("name");
-		
 		
 		fc.removeFileListener(l);
 		assertTrue(fc.fileListeners.isEmpty());		
 	}
 
-	//le pb c'est que c'est jamais la fct ci-dessous qui est prise,
-	//du coup il sert à ren le MockFileEvent et on est obligé d'avoir un vrai file pour testes
-	protected FileEvent createFileEvent(String name) {
-		return new MockFileEvent(name);
+	@Test
+	public void testFireFile() {
+		fc.addFileListener(l);
+
+		assertEquals(0, l.cpt);
+		fc.fireFileAdded("name");		
+		assertEquals(1, l.cpt);
+		fc.fireFileRemoved("name");
+		assertEquals(0, l.cpt);
 	}
 	
-	class MockFileEvent extends FileEvent {
+	class MockFileListener implements FileListener {
 
-		protected int compteur;
+		protected int cpt;
 
-		protected MockFileEvent(String source) {
-			super(source);
-			this.compteur = 0;
+		public MockFileListener() {
+			this.cpt = 0;
 		}
+		
+		@Override
+		public void fileAdded(FileEvent e) {
+			cpt++;
+			
+		}
+
+		@Override
+		public void fileRemoved(FileEvent e) {
+			cpt--;
+			
+		}
+
 		
 	}
 
