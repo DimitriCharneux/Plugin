@@ -36,7 +36,7 @@ public class FileChecker {
 			listener.fileAdded(event);
 		}
 	}
-	
+
 	public void fireFileRemoved(String name) {
 		ArrayList<FileListener> tl = (ArrayList<FileListener>) fileListeners
 				.clone();
@@ -48,8 +48,8 @@ public class FileChecker {
 			listener.fileRemoved(event);
 		}
 	}
-	
-	public void startTimer(){
+
+	public void startTimer() {
 		timer.start();
 	}
 }
