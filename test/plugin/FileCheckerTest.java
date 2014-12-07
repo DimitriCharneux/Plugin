@@ -4,14 +4,21 @@ import static org.junit.Assert.*;
 
 import java.io.FilenameFilter;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class FileCheckerTest {
 
 	FilenameFilter filter;
-	FileChecker fc = new FileChecker(filter);
+	FileChecker fc;
 	
 	FileListener l;
+	
+	@Before
+	public void init(){
+		fc = new FileChecker(filter);
+		l = new FileDetector();
+	}
 	
 	@Test
 	public void addAndRemoveFileListenerTest() {
