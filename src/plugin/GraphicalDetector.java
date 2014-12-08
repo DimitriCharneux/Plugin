@@ -11,7 +11,18 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-public class GraphicalDetector extends JFrame{
+import filters.PluginFilter;
+
+import listeners.ActionMenuItemListener;
+import listeners.FileListener;
+
+/**
+ * Class representing a graphical part of this aplication.
+ * 
+ * @author dimitri marion
+ * 
+ */
+public class GraphicalDetector extends JFrame {
 	protected JPanel panel;
 	protected JPanel panelMenu;
 	protected JMenuBar menuBar;
@@ -20,6 +31,9 @@ public class GraphicalDetector extends JFrame{
 	protected JTextArea textArea;
 	protected FileChecker checker;
 
+	/**
+	 * Constructor of this class.
+	 */
 	public GraphicalDetector() {
 		panel = new JPanel();
 		panelMenu = new JPanel();
@@ -31,9 +45,12 @@ public class GraphicalDetector extends JFrame{
 		settingsFrame();
 	}
 
+	/**
+	 * Method from set a parameter of the component.
+	 */
 	private void settingsFrame() {
 		this.setTitle("Plugin");
-		this.setSize(400,300);
+		this.setSize(400, 300);
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -46,6 +63,12 @@ public class GraphicalDetector extends JFrame{
 		this.setVisible(true);
 	}
 
+	/**
+	 * Method from add a item in a MenuBar.
+	 * 
+	 * @param s
+	 *            title of the {@link JMenuItem}
+	 */
 	public void addMenuItem(String s) {
 		JMenuItem item = new JMenuItem(s);
 		if (!listMenuItem.contains(item)) {
@@ -55,27 +78,70 @@ public class GraphicalDetector extends JFrame{
 		}
 	}
 
-	public void removeMenuItem(String s){
-		for(int i=0; i<listMenuItem.size(); i++){
-			if(listMenuItem.get(i).getText().equals(s)){
+	/**
+	 * Method from remove a item in a MenuBar.
+	 * 
+	 * @param s
+	 *            title of the {@link JMenuItem}
+	 */
+	public void removeMenuItem(String s) {
+		for (int i = 0; i < listMenuItem.size(); i++) {
+			if (listMenuItem.get(i).getText().equals(s)) {
 				menu.remove(listMenuItem.remove(i));
 			}
 		}
 	}
-	
-	public void addFileListener(FileListener fl){
+
+	/**
+	 * Method from add a {@link FileListener} to the application.
+	 * 
+	 * @param fl
+	 */
+	public void addFileListener(FileListener fl) {
 		checker.addFileListener(fl);
 	}
-	
-	public void start(){
+
+	/**
+	 * Method from start a detection of file appearance
+	 */
+	public void start() {
 		checker.startTimer();
 	}
-	
-	public String getText(){
+
+	/**
+	 * Method from get a text from the frame.
+	 * 
+	 * @return text from a frame
+	 */
+	public String getText() {
 		return textArea.getText();
 	}
-	
-	public void setText(String str){
+
+	/**
+	 * Method from set a text from the frame.
+	 * 
+	 * @param text
+	 *            from a frame
+	 */
+	public void setText(String str) {
 		textArea.setText(str);
+	}
+
+	/**
+	 * Method whether a list of plugin is empty.
+	 * 
+	 * @return true if a list of plugin is empty
+	 */
+	public boolean listMenuItemIsEmpty() {
+		return listMenuItem.isEmpty();
+	}
+
+	/**
+	 * Method know the list of plugin size.
+	 * 
+	 * @return the list of plugin size
+	 */
+	public int listMenuItemSize() {
+		return listMenuItem.size();
 	}
 }

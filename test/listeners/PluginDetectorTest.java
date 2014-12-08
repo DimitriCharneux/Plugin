@@ -1,11 +1,16 @@
-package plugin;
+package listeners;
 
 import static org.junit.Assert.*;
 
 import java.io.FilenameFilter;
 
+import listeners.PluginDetector;
+
 import org.junit.Before;
 import org.junit.Test;
+
+import plugin.FileEvent;
+import plugin.GraphicalDetector;
 
 public class PluginDetectorTest {
 
@@ -22,12 +27,12 @@ public class PluginDetectorTest {
 	
 	@Test
 	public void testAddAndRemoveFileListener() {
-		assertTrue(gd.listMenuItem.isEmpty());
+		assertTrue(gd.listMenuItemIsEmpty());
 		pld.fileAdded(e);
-		assertEquals(1, gd.listMenuItem.size());
+		assertEquals(1, gd.listMenuItemSize());
 		
 		pld.fileRemoved(e);
-		assertTrue(gd.listMenuItem.isEmpty());	
+		assertTrue(gd.listMenuItemIsEmpty());	
 	}
 
 }

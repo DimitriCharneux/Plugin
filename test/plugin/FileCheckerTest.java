@@ -4,6 +4,9 @@ import static org.junit.Assert.*;
 
 import java.io.FilenameFilter;
 
+import listeners.FileDetector;
+import listeners.FileListener;
+
 import org.junit.Before;
 import org.junit.Test;
 

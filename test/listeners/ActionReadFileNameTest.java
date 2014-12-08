@@ -1,11 +1,14 @@
-package plugin;
+package listeners;
 
 import static org.junit.Assert.assertEquals;
 
 import java.io.FilenameFilter;
 
+
 import org.junit.Before;
 import org.junit.Test;
+
+import plugin.FileChecker;
 
 public class ActionReadFileNameTest {
 
