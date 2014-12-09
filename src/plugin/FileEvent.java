@@ -3,7 +3,7 @@ package plugin;
 import java.util.EventObject;
 
 /**
- * Event from appearance of a file.
+ * Event for the appearance of a file.
  * 
  * @author dimitri marion
  * 
