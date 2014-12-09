@@ -9,8 +9,8 @@ import listeners.ActionReadFileName;
 import listeners.FileListener;
 
 /**
- * Class to see the appearance and disappearance of file in a directory in
- * regular time.
+ * Class to see the appearance and disappearance of files in a directory at
+ * regular time intervals.
  * 
  * @author dimitri marion
  * 
@@ -51,7 +51,7 @@ public class FileChecker {
 	}
 
 	/**
-	 * Method to send a event when a file appeared
+	 * Method to send an event when a file appears
 	 * 
 	 * @param name
 	 *            name of this file
@@ -69,7 +69,7 @@ public class FileChecker {
 	}
 
 	/**
-	 * Method to send a event when a file disappeared
+	 * Method to send an event when a file disappears
 	 * 
 	 * @param name
 	 *            name of this file
@@ -87,7 +87,7 @@ public class FileChecker {
 	}
 
 	/**
-	 * Method to start a detection of appearance and disappearance of this file.
+	 * Method to start the detection of files' appearance and disappearance.
 	 */
 	public void startTimer() {
 		timer.start();
