@@ -1,4 +1,4 @@
-package plugin;
+package filters;
 
 import static org.junit.Assert.*;
 

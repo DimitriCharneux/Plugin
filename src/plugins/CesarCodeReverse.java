@@ -31,9 +31,18 @@ public class CesarCodeReverse implements Plugin{
 			char c = s.charAt(i);
 			if (Character.isLetter(c)) {
 				if (Character.isLowerCase(c)) {
-					c = (char) ('a' + (((c - 'a') - this.down) % 26));
+					/*le +26 sert a éviter une erreur de symbole quand c - 'a' = 0 où le % est négatif*/
+					if(this.down > 26){
+						int downtmp = this.down%26;
+						c = (char) ('a' + (((c - 'a') - downtmp +26) % 26));
+					} else 
+						c = (char) ('a' + (((c - 'a') - this.down +26) % 26));
 				} else {
-					c = (char) ('A' + (((c - 'A') - this.down) % 26));
+					if(this.down > 26){
+						int downtmp = this.down%26;
+						c = (char) ('A' + (((c - 'A') - downtmp +26) % 26));
+					} else 
+						c = (char) ('A' + (((c - 'A') - this.down +26) % 26));
 				}
 			}
 			res = res + c;

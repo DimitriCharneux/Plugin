@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 
 import java.io.FilenameFilter;
 
-import listeners.FileDetector;
 import listeners.FileListener;
 
 import org.junit.Before;
@@ -15,12 +14,12 @@ public class FileCheckerTest {
 	FilenameFilter filter;
 	FileChecker fc;
 	
-	FileListener l;
+	MockFileListener l;
 	
 	@Before
 	public void init(){
 		fc = new FileChecker(filter);
-		l = new FileDetector();
+		l = new MockFileListener();
 	}
 	
 	@Test
@@ -40,7 +39,7 @@ public class FileCheckerTest {
 	public void testFireFile() {
 		fc.addFileListener(l);
 
-		assertEquals(0, l.cpt);
+		assertEquals(0,l.cpt);
 		fc.fireFileAdded("name");		
 		assertEquals(1, l.cpt);
 		fc.fireFileRemoved("name");
