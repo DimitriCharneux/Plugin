@@ -1,3 +1,7 @@
+/*
+	On pourra la retirer du projet cette classe, non ?
+*/
+
 package filters;
 
 import java.io.File;
