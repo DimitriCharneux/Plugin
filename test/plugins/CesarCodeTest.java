@@ -22,15 +22,15 @@ public class CesarCodeTest {
 	}
 
 	@Test
-	public void testShiftByOneOr28() {
+	public void testShiftByOneOr27() {
 		CesarCode code1 = new CesarCode(1);
-		CesarCode code28 = new CesarCode(27);
+		CesarCode code27 = new CesarCode(27);
 		assertEquals(1, code1.shift);
-		assertEquals(27, code28.shift);
+		assertEquals(27, code27.shift);
 		assertEquals("Bcd", code1.transform(str1));
 		assertEquals("yZa", code1.transform(str2));
-		assertEquals("Bcd", code28.transform(str1));
-		assertEquals("yZa", code28.transform(str2));
+		assertEquals("Bcd", code27.transform(str1));
+		assertEquals("yZa", code27.transform(str2));
 	}
 	
 }
