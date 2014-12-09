@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FilenameFilter;
 
 /**
- * Class to listing the file in a directory.
+ * Class to list the files in a directory.
  * 
  * @author dimitri marion
  * 
@@ -30,11 +30,11 @@ public class ClassFile {
 	}
 
 	/**
-	 * Method to have a list of file in the directory.
+	 * Method to list the files of the directory.
 	 * 
 	 * @param filter
 	 *            filter for the file
-	 * @return list of file respected a filter
+	 * @return list of files that respect the filter
 	 */
 	public String[] listName(FilenameFilter filter) {
 		return file.list(filter);
