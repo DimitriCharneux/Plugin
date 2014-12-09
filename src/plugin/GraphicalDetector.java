@@ -17,7 +17,7 @@ import listeners.ActionMenuItemListener;
 import listeners.FileListener;
 
 /**
- * Class representing a graphical part of this aplication.
+ * Class representing the graphical part of this aplication.
  * 
  * @author dimitri marion
  * 
@@ -46,7 +46,7 @@ public class GraphicalDetector extends JFrame {
 	}
 
 	/**
-	 * Method from set a parameter of the component.
+	 * Method to set the parameters of the component.
 	 */
 	private void settingsFrame() {
 		this.setTitle("Plugin");
@@ -64,7 +64,7 @@ public class GraphicalDetector extends JFrame {
 	}
 
 	/**
-	 * Method from add a item in a MenuBar.
+	 * Method to add a item in a MenuBar.
 	 * 
 	 * @param s
 	 *            title of the {@link JMenuItem}
@@ -79,7 +79,7 @@ public class GraphicalDetector extends JFrame {
 	}
 
 	/**
-	 * Method from remove a item in a MenuBar.
+	 * Method to remove a item in a MenuBar.
 	 * 
 	 * @param s
 	 *            title of the {@link JMenuItem}
@@ -93,7 +93,7 @@ public class GraphicalDetector extends JFrame {
 	}
 
 	/**
-	 * Method from add a {@link FileListener} to the application.
+	 * Method to add a {@link FileListener} to the application.
 	 * 
 	 * @param fl
 	 */
@@ -102,14 +102,14 @@ public class GraphicalDetector extends JFrame {
 	}
 
 	/**
-	 * Method from start a detection of file appearance
+	 * Method to start the detection of file appearance.
 	 */
 	public void start() {
 		checker.startTimer();
 	}
 
 	/**
-	 * Method from get a text from the frame.
+	 * Method to get a text from the frame.
 	 * 
 	 * @return text from a frame
 	 */
@@ -118,7 +118,7 @@ public class GraphicalDetector extends JFrame {
 	}
 
 	/**
-	 * Method from set a text from the frame.
+	 * Method to set a text into the frame.
 	 * 
 	 * @param text
 	 *            from a frame
@@ -128,16 +128,16 @@ public class GraphicalDetector extends JFrame {
 	}
 
 	/**
-	 * Method whether a list of plugin is empty.
+	 * Method to test whether a list of plugins is empty.
 	 * 
-	 * @return true if a list of plugin is empty
+	 * @return true if a list of plugins is empty
 	 */
 	public boolean listMenuItemIsEmpty() {
 		return listMenuItem.isEmpty();
 	}
 
 	/**
-	 * Method know the list of plugin size.
+	 * Method to know the size of the list of plugins.
 	 * 
 	 * @return the list of plugin size
 	 */
