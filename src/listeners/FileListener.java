@@ -5,7 +5,7 @@ import java.util.EventListener;
 import plugin.FileEvent;
 
 /**
- * Interface from the listeners from file appearance.F
+ * Interface for the listeners for file appearance and disappearance.
  * @author dimitri marion
  *
  */
