@@ -10,7 +10,7 @@ import plugin.ClassFile;
 import plugin.FileChecker;
 
 /**
- * Class to detect a file appearance.
+ * Class to detect if files are added or remove.
  * 
  * @author dimitri marion
  * 
@@ -41,10 +41,10 @@ public class ActionReadFileName implements ActionListener {
 	}
 
 	/**
-	 * Method to detect a file appearance.
+	 * Method to detect files appearance.
 	 * 
 	 * @param str
-	 *            Name of file appeared.
+	 *            the names of the file present in the repertory.
 	 */
 	public void fileAddedDetected(String[] str) {
 		for (String st : str) {
@@ -56,10 +56,10 @@ public class ActionReadFileName implements ActionListener {
 	}
 
 	/**
-	 * Method to detect a file disappearance.
+	 * Method to detect files disappearance.
 	 * 
 	 * @param str
-	 *            Name of file disappearance.
+	 *            the names of the file present in the repertory.
 	 */
 	public void fileRemovededDetected(String[] str) {
 		boolean isDetected = false;
