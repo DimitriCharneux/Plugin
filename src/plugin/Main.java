@@ -4,7 +4,7 @@ import listeners.FileListener;
 import listeners.PluginDetector;
 
 /**
- * Class to start plugin application.
+ * Class to start the plugin application.
  * 
  * @author dimitri marion
  * 
