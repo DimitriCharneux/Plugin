@@ -4,7 +4,7 @@ import plugin.FileEvent;
 import plugin.GraphicalDetector;
 
 /**
- * Class to detect appearance and disappearance from a plugin.
+ * Class to detect appearance and disappearance of plugins.
  * 
  * @author dimitri marion
  * 
