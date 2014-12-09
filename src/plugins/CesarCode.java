@@ -13,7 +13,7 @@ public class CesarCode implements Plugin {
 
 	/** the shift of character (1 for strict Cesar code) 
 	  */
-	private int shift;
+	protected int shift;
 
 	/**
 	 * a Cesar code where shift is 1
